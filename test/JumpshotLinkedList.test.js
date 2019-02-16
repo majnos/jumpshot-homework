@@ -8,8 +8,8 @@ describe('Linked list', () => {
         it('should construct empty list', () => {
             let list = new MyLinkedList();
             assert.isOk(list);
-            assert.isNull(list._first);
-            assert.isNull(list._last);    
+            assert.isNull(list.first);
+            assert.isNull(list.last);    
         });
 
         it('should construct non-empty list, if argument is array', () => {

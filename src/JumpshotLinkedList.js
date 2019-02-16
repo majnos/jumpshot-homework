@@ -2,7 +2,6 @@
  * Jumpshot linked-list that does not know at the time of the init its length
  */
 
-
 const Node = function (value) {
   this.value = value;
   this.next = null;
@@ -12,13 +11,13 @@ const Node = function (value) {
 /**
  * LinkedList constructor
  * @param {Array} arr If an array is provided, linked list will contain array elements.
- * Zero element in the array will be _first element in the list.
+ * Zero element in the array will be first element in the list.
  */
 class JumpshotLinkedList {
   constructor(arr) {
-    this._first = null;
-    this._last = null;
-    this._head = null;
+    this.first = null;
+    this.last = null;
+    this.head = null;
     if (arr && Array.isArray(arr)) {
       for (let i = arr.length - 1; i >= 0; i -= 1) {
         this.add(arr[i]);
@@ -33,28 +32,28 @@ class JumpshotLinkedList {
    */
   add(value) {
     const newNode = new Node(value);
-    if (this._first) {
-      this._first.prev = newNode;
-      newNode.next = this._first;
+    if (this.first) {
+      this.first.prev = newNode;
+      newNode.next = this.first;
     } else {
-      this._last = newNode;
+      this.last = newNode;
     }
-    this._first = newNode;
+    this.first = newNode;
     return this;
   }
 
   /**
    * Get first element. If list is empty, returns null.
    */
-  get first() {
-    return this._first;
+  first() {
+    return this.first;
   }
 
   /**
-   * Get _last element. If list is empty, returns null.
+   * Get last element. If list is empty, returns null.
    */
-  get last() {
-    return this._last;
+   last() {
+    return this.last;
   }
 
   /**
@@ -101,19 +100,19 @@ class JumpshotLinkedList {
     if (prev) {
       prev.next = next;
     } else {
-      // removed node is _first. Update this._first
-      this._first = node.next;
-      if (this._first) {
-        this._first.prev = null;
+      // removed node is first. Update this.first
+      this.first = node.next;
+      if (this.first) {
+        this.first.prev = null;
       }
     }
     if (next) {
       next.prev = prev;
     } else {
-      // removed node is last. Update this._last
-      this._last = node.prev;
-      if (this._last) {
-        this._last.next = null;
+      // removed node is last. Update this.last
+      this.last = node.prev;
+      if (this.last) {
+        this.last.next = null;
       }
     }
     this.count -= 1;
@@ -127,7 +126,7 @@ class JumpshotLinkedList {
    */
   countLength() {
     let cnt = 0;
-    let node = this._first;
+    let node = this.first;
     if (!node && !(node instanceof (Node))) {
       return null;
     }
@@ -155,7 +154,7 @@ class JumpshotLinkedList {
    * @returns {LinkedList} Returns reference to this LinkedList object
    */
   iterate(callback) {
-    let node = this._first;
+    let node = this.first;
     while (node !== null) {
       callback(node.value, node);
       node = node.next;

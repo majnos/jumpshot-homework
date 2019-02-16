@@ -5,13 +5,18 @@
 
 # Usage
 
-Prereq:
+Prerequisites:
+===============
 
 - `install node` - see `https://nodejs.org/en/download/package-manager/`
 - `install nvm` - see `https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/` for details
 - `install avn` - see `https://github.com/wbyoung/avn` for details
 
-Running:
+How to work with repo:
+======================
 
-run: `npm i`
-run: `npm run test`
+install dependencies:
+`npm i`
+
+run tests:
+`npm run test`
